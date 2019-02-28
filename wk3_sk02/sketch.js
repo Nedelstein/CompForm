@@ -1,15 +1,15 @@
-var cam;
-var radio;
+let cam;
+let radio;
 
-var pixSize;
+let pixSize;
 
-var redPix, greenPix, bluePix;
+let redPix, greenPix, bluePix;
 
 function setup() {
   createCanvas(720, 480);
   cam = createCapture(VIDEO);
-  cam.size(400, 300);
-  cam.hide();
+  cam.size(300, 300);
+  // cam.hide();
   noStroke();
 
   radio = createRadio();
@@ -19,7 +19,7 @@ function setup() {
   radio.value('Square');
 
   createP('Shape Size');
-  pixSize = createSlider(0, 25, 0);
+  pixSize = createSlider(0, 25, 3);
 
   createP('Red Value');
   redPix = createSlider(0, 255, 0);
@@ -35,22 +35,22 @@ function setup() {
 function draw() {
 background(255);
   cam.loadPixels();
-  var val = radio.value();
-  var shapeSize = pixSize.value();
+  let val = radio.value();
+  let shapeSize = pixSize.value();
 
-  var skip = 4 + shapeSize;
-  for (var x = 0; x < cam.width; x += skip) {
-    for (var y = 0; y < cam.height; y += skip) {
-      var index = ((y * cam.width) + x) * 4;
+  let skip = 4 + shapeSize;
+  for (let x = 0; x < cam.width; x += skip) {
+    for (let y = 0; y < cam.height; y += skip) {
+      let index = ((y * cam.width) + x) * 4;
 
-      var red_pix = redPix.value();
-      var green_pix = greenPix.value();
-      var blue_pix = bluePix.value();
+      let red_pix = redPix.value();
+      let green_pix = greenPix.value();
+      let blue_pix = bluePix.value();
 
 
-      var redVal = cam.pixels[index] + red_pix;
-      var greenVal = cam.pixels[index + 1] + green_pix;
-      var blueVal = cam.pixels[index + 2] + blue_pix;
+      let redVal = cam.pixels[index] + red_pix;
+      let greenVal = cam.pixels[index + 1] + green_pix;
+      let blueVal = cam.pixels[index + 2] + blue_pix;
 
       fill(redVal, greenVal, blueVal);
       if (val === 'Triangle') {
