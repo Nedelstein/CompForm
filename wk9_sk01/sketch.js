@@ -14,7 +14,7 @@ let EXPORT = false;
 function setup() {
   pixelDensity(1);
   createCanvas(w, h);
-  frameRate(60);
+  frameRate(2);
   background(0);
   ellipseMode(CENTER);
   x = w / 3;
@@ -22,8 +22,6 @@ function setup() {
 }
 
 function draw() {
-  // fill(0, 10);
-  // rect(0, 0, w, h);
   console.log(frameCount);
   blendMode(ADD);
   y = y - yDir;
@@ -39,7 +37,6 @@ function draw() {
   if (x == 396 && y == 60) {
     x *= 0;
     y *= 0;
-    // fill(1, 1);
   }
 
   for (let i = 0; i < 600; i++) {
