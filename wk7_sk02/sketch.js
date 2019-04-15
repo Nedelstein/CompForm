@@ -13,8 +13,8 @@ function setup() {
 }
 
 function draw() {
-  background(255);
-  stroke(127);
+  background(127);
+  stroke(255);
 
   myTurtle.penUp();
   myTurtle.moveTo(width / 2, 750);

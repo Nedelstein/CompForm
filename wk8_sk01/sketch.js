@@ -48,6 +48,7 @@ pathCirc.style = {
 };
 
 function onFrame(event) {
+  // background(0)
   pathRight.strokeColor.hue += 1;
   pathLeft.strokeColor.hue += 1;
   pathCirc.strokeColor.hue -= 1;
